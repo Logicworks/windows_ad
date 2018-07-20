@@ -42,7 +42,7 @@ class windows_ad::install (
   if ($installflag == true){
     if $::operatingsystem != 'windows' { fail ("${module_name} not supported on ${::operatingsystem}") }
     if $restart { $restartbool = 'true' } else { $restartbool = 'false' }
-    if $installsubfeatures { $subfeatures = '-IncludeAllSubFeature' }
+    if $installsubfeatures { $subfeatures = '-IncludeAllSubFeature' } else { $subfeatures = '' }
 
     if $::kernelversion =~ /^(6.1)/ and $installmanagementtools {
       fail ('Windows 2012 or newer is required to use the installmanagementtools parameter')
